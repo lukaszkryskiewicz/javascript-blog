@@ -50,7 +50,6 @@ for (let link of links){
 const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
-    console.log(optArticleSelector);
 
 function generateTitleLinks () {
     console.log('wykonanie funkcji');
@@ -61,6 +60,22 @@ function generateTitleLinks () {
 
 
   /* for each article */
+    const articles = document.querySelectorAll(optArticleSelector);
+    for (let article of articles){
+    /* get the article id */
+      const articleId = article.getAttribute('id');
+      console.log(articleId);
+    /* find the title element */
+
+
+    /* get the title from the title element */
+
+    /* create HTML of the link */
+
+    /* insert link into titleList */
+
+
+    }
 
     /* get the article id */
 
