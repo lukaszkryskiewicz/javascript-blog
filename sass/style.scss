@@ -58,7 +58,6 @@ body {
 .posts {
   flex: 2 0 0;
   position: relative;
-  min-height: 700px;
 }
 
 .sidebar,
@@ -122,6 +121,7 @@ body {
     opacity: 100;
     z-index: 1;
     transition: 1s;
+    position: static;
   }
 }
 

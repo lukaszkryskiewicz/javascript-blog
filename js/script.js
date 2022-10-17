@@ -13,7 +13,7 @@
     /* [DONE] remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
 
-    for (let activeLink of activeLinks) {
+    for (const activeLink of activeLinks) {
       activeLink.classList.remove('active');
     }
 
@@ -26,7 +26,7 @@
     /* [DONE]remove class 'active' from all articles */
     const activeArticles = document.querySelectorAll('.post.active');
 
-    for (let activeArticle of activeArticles) {
+    for (const activeArticle of activeArticles) {
       activeArticle.classList.remove('active');
     }
 
@@ -47,7 +47,7 @@
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
 
-  function generateTitleLinks() {
+  const generateTitleLinks = function () {
     console.log('wykonanie funkcji');
 
     /* remove contents of titleList */
@@ -58,7 +58,7 @@
     /* for each article */
     let html = ''; //variable to use in 'insert link into titetlList' section!
     const articles = document.querySelectorAll(optArticleSelector);
-    for (let article of articles) {
+    for (const article of articles) {
       /* get the article id */
       const articleId = article.getAttribute('id');
       console.log(articleId);
@@ -84,7 +84,7 @@
     console.log(html)
     const links = document.querySelectorAll('.titles a');
     console.log(links);
-    for (let link of links) {
+    for (const link of links) {
       link.addEventListener('click', titleClickHandler);
     }
 
