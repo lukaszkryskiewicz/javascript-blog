@@ -40,7 +40,7 @@
 
     /* [DONE]add class 'active' to the correct article */
     correctArticle.classList.add('active');
-  }
+  };
 
 
   const optArticleSelector = '.post',
@@ -64,14 +64,14 @@
       console.log(articleId);
       /* find the title element */
       const findTitle = article.querySelector(optTitleSelector);
-      console.log(findTitle)
+      console.log(findTitle);
       /* get the title from the title element */
       const articleTitle = findTitle.innerHTML;
       console.log(articleTitle);
 
       /* create HTML of the link */
       const articleHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-      console.log(articleHTML)
+      console.log(articleHTML);
 
       /* insert link into titleList */
       // titleList.innerHTML = titleList.innerHTML + articleHTML; //first solution
@@ -81,14 +81,14 @@
 
     }
     titleList.innerHTML = html;
-    console.log(html)
+    console.log(html);
     const links = document.querySelectorAll('.titles a');
     console.log(links);
     for (const link of links) {
       link.addEventListener('click', titleClickHandler);
     }
 
-  }
+  };
 
   generateTitleLinks();
 
