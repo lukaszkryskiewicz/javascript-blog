@@ -48,17 +48,18 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
 
-  const generateTitleLinks = function () {
+  const generateTitleLinks = function (customSelector = '') {
     console.log('wykonanie funkcji');
 
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
 
-
     /* for each article */
     let html = ''; //variable to use in 'insert link into titetlList' section!
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    console.log(customSelector);
+    console.log(optArticleSelector + customSelector);
     for (const article of articles) {
       /* get the article id */
       const articleId = article.getAttribute('id');
@@ -139,7 +140,7 @@
     const tag = href.replace('#tag-', '');
     console.log(tag)
     /* find all tag links with class active */
-    const activeTags = querySelectorAll('a.active[href^="#tag-"]');
+    const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
     console.log(activeTags)
     /* START LOOP: for each active tag link */
     for (activeTag of activeTags) {
@@ -148,11 +149,11 @@
       /* END LOOP: for each active tag link */
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
-    const allTagLinks = querySelectorAll('a[href="' + href + '"]');
+    const allTagLinks = document.querySelectorAll('a[href="' + href + '"]');
     /* START LOOP: for each found tag link */
-    for (allTagLink of allTagLinks) {
+    for (tagLink of allTagLinks) {
       /* add class active */
-      allTagLink.classList.add('active');
+      tagLink.classList.add('active');
       /* END LOOP: for each found tag link */
     }
     /* execute function "generateTitleLinks" with article selector as argument */
@@ -161,15 +162,16 @@
 
   function addClickListenersToTags() {
     /* find all links to tags */
-
+    console.log('wywolanie funk');
+    const allTagLinks = document.querySelectorAll('a[href^="#tag-"]');
+    console.log(allTagLinks);
     /* START LOOP: for each link */
-
-    /* add tagClickHandler as event listener for that link */
-
-    /* END LOOP: for each link */
+    for (const allTagLink of allTagLinks) {
+      /* add tagClickHandler as event listener for that link */
+      allTagLink.addEventListener('click', tagClickHandler);
+      /* END LOOP: for each link */
+    }
   }
-
   addClickListenersToTags();
 
-  generateTags();
 }
